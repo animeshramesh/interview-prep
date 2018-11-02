@@ -13,11 +13,11 @@
 - Floating point division is default in Python 3. // for integer division
 - One line if-else
   x if val < root.val else y
-- Flatten 2D list -> [i for s in list_2D for i in s]
-- a.sort(key=lambda x: x.start, reverse=False)
-- sorted() returns the list
-- ''.join(word) -> To create a list from a string
-- my_dict.pop('key', None) -> To remove a key from a dictionary
+- Flatten 2D list -> `[i for s in list_2D for i in s]`
+- `a.sort(key=lambda x: x.start, reverse=False)`
+- `sorted()` returns the list
+- `''.join(word)` -> To create a list from a string
+- `my_dict.pop('key', None)` -> To remove a key from a dictionary
 - Keys in a dictionary need not be sorted
 - "animesh"[1:] -> "nimesh", "animesh"[:1] -> "a"
 - "animesh"[-1:] -> "h", "animesh"[:-1] -> "animes"
@@ -31,8 +31,8 @@
 
 
 # Strings
-- word.strip() for trimming spaces
-- word = ''.join(arr) to create a string from a list
+- `word.strip()` for trimming spaces
+- `word = ''.join(arr)` to create a string from a list
 - String matching algorithms
 
 # Sorting
@@ -40,9 +40,9 @@
 - Bucket sort (Used in top k most frequent elements)
 
 # Sets
-- s = set()
-- s.add(1)
-- s.remove(1)
+```s = set()
+s.add(1)
+s.remove(1)```
 
 # Hash maps
 - from collections import defaultdict
