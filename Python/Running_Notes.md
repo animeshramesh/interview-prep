@@ -42,24 +42,30 @@
 # Sets
 ```s = set()
 s.add(1)
-s.remove(1)```
+s.remove(1)
+```
 
 # Hash maps
-- from collections import defaultdict
-- x = {'a':1}
-- del x['a']
+```from collections import defaultdict
+x = {'a':1}
+del x['a']
+```
 
 # Stacks
+```
 stack = []
-stack[-1] -> peek at top of stack
-stack.pop() -> pops & returns the item
-LIFO
+stack[-1]      # peek at top of stack
+stack.pop()    # pops & returns the item
+# LIFO
+```
 
 # Queues
+```
 queue = collections.deque()
 queue.append(1)
 queue.popleft()
-FIFO
+# FIFO
+```
 
 # Linked List
 - Use double ended linked list
@@ -100,11 +106,13 @@ FIFO
 - It's a complete binary tree
 - Max-heap -> All children of a node are <= root
 - O(log n) insertion, O(1) lookup for max element, O(logn) for deletion of max element
-- heapq.heapify(arr) -> in-place heapify
-- heapq.heappush(heap, element)
-- heapq.heappop(heap)
 - By default, heapq implements min-heap
-
+```
+import heapq
+heapq.heapify(arr)  # in-place 
+heapifyheapq.heappush(heap, element)
+heapq.heappop(heap)
+```
 
 # Dynamic Programming
 - 1D, 2D
