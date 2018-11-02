@@ -1,6 +1,6 @@
 
 class Solution
-{	string alienOrder(vector<string>& words) 
+{	string alienOrder(vector<string>& words)
 	{
           if (words.size() == 1) return words[0];
           graph g = make_graph(words);
@@ -9,17 +9,17 @@ class Solution
 
 	private:
 		typedef unordered_map<char, unordered_set<char>> graph;
-     
-		 graph make_graph(vector<string>& words) 
+
+		 graph make_graph(vector<string>& words)
 		 {
 		     graph g;
 		     int n = words.size();
-		     for (int i = 1; i < n; i++) 
+		     for (int i = 1; i < n; i++)
 		     {
 		         bool found = false;
 		         string word1 = words[i - 1], word2 = words[i];
 		         int m = word1.length(), n = word2.length(), l = max(m, n);
-		         for (int j = 0; j < l; j++) 
+		         for (int j = 0; j < l; j++)
 		         {
 		             if (j < m && g.find(word1[j]) == g.end())
 		                 g[word1[j]] = unordered_set<char>();
@@ -28,7 +28,7 @@ class Solution
 		                 g[word2[j]] = unordered_set<char>();
 
 		             // Consider only the 1st change
-		             if (j < m && j < n && word1[j] != word2[j] && !found) 
+		             if (j < m && j < n && word1[j] != word2[j] && !found)
 		             {
 		                 g[word1[j]].insert(word2[j]);
 		                 found = true;
