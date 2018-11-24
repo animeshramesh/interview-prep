@@ -27,11 +27,6 @@ from collections import defaultdict
 
 class Solution(object):
     def leastInterval(self, tasks, n):
-        """
-        :type tasks: List[str]
-        :type n: int
-        :rtype: int
-        """
 
         ref = defaultdict(int)
         for task in tasks:
