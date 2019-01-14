@@ -9,6 +9,9 @@
 - What is immutable/mutable? (immutable objects are container-friendly, thread-safe and memory-friendly)
 - Harvard Quora video: https://www.youtube.com/watch?v=eJjg2MkYPaY
 - https://zxi.mytechroad.com/blog/
+- If nothing helps, try traversing it from the end.
+
+
 
 # Python
 - append is amortized O(1), not O(1)
@@ -28,7 +31,7 @@
 - range vs xrange
 - Exception handling
 - List vs tuple
-- Python 2.7 vs Python3
+- Python 2.7 vs Python3 -> xrange, print, float division, strings are unicode in 3 and ascii in 2.
 - args and kwargs
 - "@decorator"
 - isdigit(), isalpha(), isalnum()
@@ -38,6 +41,9 @@
     step: Difference between each number in the sequence.
 - from collection import Counter, defaultdict
 - raise NotImplementedError
+- bisect.bisect for binary search in python
+- list(nums) returns a copy of nums
+- list.insert(idx, element)
 
 # Strings
 - `word.strip()` for trimming spaces
@@ -47,10 +53,6 @@
 - word.lower()/word.islower()
 - s.find(word) substring search
 - s.find(word, idx) substring search from that index
-
-# Sorting
-- Merge sort vs Quick sort
-- Bucket sort (Used in top k most frequent elements)
 
 # Sets
 ```s = set()
@@ -66,7 +68,10 @@ defaultdict(lambda:1)
 x = {'a':1}
 del x['a']
 min(x) = 'a'
+ref.get(k, 0)
+ref.pop(k, None)
 Open addressing vs chaining for resolving collisions
+(Linear + Quadratic open addressing)
 ```
 
 # Stacks
@@ -87,7 +92,7 @@ queue.popleft()
 
 # Linked List
 - Use double ended linked list
-- Fast and slow to detect cycle
+- Fast and slow to detect cycle, midpoint
 - Reverse a linked list in place
 
 # Trees
@@ -121,13 +126,17 @@ Note that O(|E|) may vary between O(1) and O(|V|^2), depending on how sparse the
 - AVL tree - balance factor (0, 1, -1). its just an efficient bst
   worst search - logn
   left-left, left-right, right-left, right-right
+- Complete vs balanced binary tree
+- # nodes in complete binary tree = 2^h - 1
 
 # Graphs
 - Represent a weighted graph using dict of dicts
 - Topological sort -> Indegree and out_degree. (Append nodes with outdegree == 0 to queue and decrement out_degree)
 - Dijkstra -> Greedy BFS for shortest path from starting node to ending node + heap
 - A * search -> Exactly like Dijkstra, but with a heuristic function
-- Minimum spanning tree, Floyd Warshall, Bellman Ford
+- Dijkstra, Bellmann Ford and Floyd Warshall are all to determine shortest path
+- Floyd Warshall - O(n^3) to get shortest path from i to j anywhere in the graph
+- Minimum spanning tree - Tree which has all nodes but with least cost of edges (Kruskal's Union Find Greedy)
 - Max flow problem, ford fulkerson
 - Union Find -> to detect cycle in graph
 
@@ -137,11 +146,14 @@ Note that O(|E|) may vary between O(1) and O(|V|^2), depending on how sparse the
 - O(log n) insertion, O(1) lookup for max element, O(logn) for deletion of max element
 - By default, heapq implements min-heap
 - By default, heapq will sort on the first element of the tuple. (If elements are all tuples)
+- Heaps can be stored compactly as arrays.
+- Children are 2*idx+1, 2*idx+2 and parent is (idx-2)/2
 ```
 import heapq
 heapq.heapify(arr)  # in-place
 heapq.heappush(heap, element)
 heapq.heappop(heap)
+
 arr[0] will have the smallest element
 ```
 
@@ -161,6 +173,11 @@ arr[0] will have the smallest element
 - HTTP
 - Encryption?
 - Realtime -> web sockets
+- ACID - Atomicity, Consistency, Isolation, Durability
+- redis - In memory database, very fast, written in C, used as cache
+- SQL not suitable for hierarchical data
+- NoSQL has dynamic schema for unstructured data (SQL does not)
+- SQL is vertically scalable, NoSQL - horizontally scalable
 
 # Operating System
 - Processes vs threads
@@ -199,44 +216,53 @@ arr[0] will have the smallest element
     Stable sort is needed where you need to sort on the basis of first letter of names
 
 
-# Problems
-575. Distribute candies
-277. Find celebrity -> https://leetcode.com/problems/find-the-celebrity/discuss/178129/Python-Solution-Beats-93-O(N)-Time-and-O(1)-space
-759. Employee Free time -> Which employee does not matter. So flatten schedule.
-     https://leetcode.com/problems/employee-free-time/discuss/170551/Simple-Python-9-liner-beats-97-(with-explanation)
-295. Median in a data stream -> You don't need to sort the entire stream. You just need to keep track of the median. Use two heaps.
-632. Smallest Range in k sorted lists -> https://www.youtube.com/watch?v=Fqal25ZgEDo
-303. Range Sum Query: sum(i, j) = cumulative_sum(i) - cumulative_sum(j)
-
+# Counting
+- n! permutation
 
 
 # ToDo
-- How are sets implemented?
-- How do hash maps work? How are collisions resolved?
-- Sets vs Maps
 - P vs NP (NP complete, NP hard)
-- Longest increasing subsequence
+- Topological Sort
 - Union Find
-- Reservoir sampling
 - Serialize n-ary tree
-- OOPs in Python
 - Buddy Strings
 - Concept of generating random numbers
 - Iterative tree traversals
 - Quick sort
+- Graph algos
+- Morris Traversal
 
 
-# Problems to memorize
+# Problems
 ARRAYS
 - Random pick weight
 - Set matrix zeroes
 - Range addition
 - Product of array except self
 - Spiral Matrix
-- Heaters
+- Heaters (binary search for house in heaters)
+- Island perimeter (islands * 4 - neighbors * 2) (right and down neighbors)
+- Move zeroes
+- Is subsequence
+- Maximize distance to closest person (Imp)
+- Next permutation (find the first ascending digit from the back of the number and sort rest)
+- First missing positive (Concept where you use array index as the hash -> nums[nums[i]%n]+=n)
+- Int2Str
+- Sliding window concept
+- Rotate Image (Reverse rows and swap i,j)
+- Insert interval
+
+MISC
+- Find duplicate number (Hare and tortoise solution)
+
+BINARY SEARCH
+- Median of two sorted arrays
 
 TWO_POINTER
 - Longest substring with at most two distinct characters
+- Longest substring with at most k distinct characters
+- Container with most water
+- Sort colors
 
 SORTING
 - Wiggle sort
@@ -247,16 +273,22 @@ SORTING
 HASH MAPS
 - Encode and Decode URL
 - Number of corner rectangles
+- Fruit into baskets
 
 STACKS
 - Exclusive time of functions
 - Basic calculator
 - Next greater element
 - Asteroid collision
+- Daily Temperatures (Go from right)
+- Car Fleet (Compute times)
 
 HEAPS:
 - Task scheduler
 - Meeting Rooms II
+- kth smallest element in sorted matrix
+- Median in sorted stream
+- Smallest range
 
 LINKED LIST
 - LRU Cache
@@ -284,6 +316,9 @@ TREES
 - Trie (children + word)
 - Serialize and Deserialize Binary Tree (Pre-order DFS)
 - Lowest Common Ancestor
+- Split BST
+- Iterative Inorder
+- Delete Node in BST
 
 DYNAMIC PROGRAMING
 - Word Break
@@ -291,6 +326,8 @@ DYNAMIC PROGRAMING
 - Decode ways
 - Frog Jump (time complexity?)
 - House Robber 3
+- Unique Paths 1 and 2
+- Longest Increasing Subsequence
 
 BACKTRACKING
 - Letter combinations of a phone number -> O(4^n) time and O(n) space

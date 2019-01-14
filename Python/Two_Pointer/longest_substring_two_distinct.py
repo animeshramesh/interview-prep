@@ -21,7 +21,7 @@ class Solution(object):
         for index, char in list(enumerate(s)):
             d[char] = index
             if len(d.keys()) == maximum_distinct + 1:
-                index_to_remove = min([d[char] for char in d.keys()])
+                index_to_remove = min(d.values())
                 d.pop(s[index_to_remove], None)
                 left = index_to_remove + 1
             longest = max(longest, index - left + 1)
